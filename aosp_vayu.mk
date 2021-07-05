@@ -11,13 +11,16 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit device configurations
 $(call inherit-product, device/xiaomi/vayu/device.mk)
 
-# Inherit common Legion OS configurations
-$(call inherit-product, vendor/legion/config/common_full_phone.mk)
-TARGET_BOOT_ANIMATION_RES := 1080
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.maintainer.name=chdelacr
+# Inherit common Hycon OS configurations
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+HYCON_BUILD_TYPE := OFFICIAL
+TARGET_GAPPS_ARCH := arm64
+TARGET_INCLUDE_STOCK_ARCORE := true
+TARGET_INCLUDE_LIVE_WALLPAPERS := true
+TARGET_SUPPORTS_GOOGLE_RECORDER := true
+TARGET_USES_FACE_UNLOCK := true
 
-PRODUCT_NAME := legion_vayu
+PRODUCT_NAME := aosp_vayu
 PRODUCT_DEVICE := vayu
 PRODUCT_BRAND := POCO
 PRODUCT_MODEL := Poco X3 Pro
